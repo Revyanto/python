@@ -1,0 +1,83 @@
+'''
+input
+Bilangan yang akan di operasikan
+
+proses + output
+• Menghitung perkalian dua bilangan tanpa operator *
+• Menghitung pemangkatan dua bilangan tanpa operator **
+• Memeriksa apakah suatu bilangan adalah prima?
+'''
+
+def perkalian (a,b):
+    kali = a
+    for i in range (1,b+1):
+        kali = kali + a
+        i = i + 1
+        if i == b:
+            return kali
+
+def pemangkatan (a,b):
+    pangkat = a
+    i = 1 
+    while i <= b+1:
+        pangkat = pangkat * a
+        i = i+1
+        if i == b:
+            return pangkat
+
+def prima (a):
+    if a > 1:
+        for i in range (2,a):
+            if a%i == 0:
+                print ("Bilangan", a, "bukan bilangan prima")
+                print (i, "kali", a//i, "=", a) #di video saya lupa menperbaiki "kaii" menjadi "kali" 
+                break
+        else:
+            print ("Bilangan", a, "adalah bilangan prima")
+    else:
+        print ("Bilangan", a, "bukan bilangan prima")
+
+i = 1
+while i == 1:
+    print ("="*15, "Program penghitung", "="*15)
+    print ("1. Perkalian dua bilangan")
+    print ("2. Pemangkatan dua bilangan")
+    print ("3. Memeriksa apakah suatu bilangan prima")
+    pilih = int(input("Masukkan pilihan Anda :"))
+    if pilih == 1:
+        a = int(input("Masukkan bilangan yang ingin dikali :"))
+        b = int(input("Masukkan bilangan pengkali :"))
+        hasil = perkalian (a,b)
+        print (a, "x", b, "=", hasil)
+        print ("-"*50)
+        print ("Tekan 1 untuk kembali ke menu awal")
+        print ("Tekan 2 untuk keluar dari program")
+        tekan = int(input(""))
+        if tekan == 2:
+            print ("Terima kasih sudah menggunakan program ini")
+            i = 2
+    elif pilih == 2:
+        a = int(input("Masukkan bilangan yang ingin dipangkatkan :"))
+        b = int(input("Masukkan bilangan pemangkatnya :"))
+        hasil = pemangkatan (a,b)
+        print (a, "*", b, "=", hasil)
+        print ("-"*50)
+        print ("Tekan 1 untuk kembali ke menu awal")
+        print ("Tekan 2 untuk keluar")
+        tekan = int(input(""))
+        if tekan == 2:
+            print ("Terima kasih sudah menggunakan program ini")
+            i = 2
+    elif pilih == 3:
+        a = int(input("Masukkan bilangan yang ingin diuji :"))
+        prima (a)
+        print ("-"*50)
+        print ("Tekan 1 untuk kembali ke menu awal")
+        print ("Tekan 2 untuk keluar")
+        tekan = int(input(""))
+        if tekan == 2:
+            print ("Terima kasih sudah menggunakan program ini")
+            i = 2
+    else:
+        print ("Pilihan Anda tidak tersedia silahkan coba lagi")
+        
