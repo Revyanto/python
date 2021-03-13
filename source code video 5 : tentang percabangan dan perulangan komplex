@@ -1,0 +1,143 @@
+'''
+Buatlah sebuah program untuk menampilkan 2 formasi deret angka seperti text case di bawah ini :
+#tampilan awal
+======Formasi Deretan Angka======
+Masukkan Angka :5
+1. Formasi A
+2. Formasi B
+Silahkan memilih formasi :
+#text case 1
+Silahkan memilih formasi :1
+Formasi A 
+5 5 5 5 5           
+ 4 4 4 4
+  3 3 3
+   2 2
+    1
+   2 2
+  3 3 3
+ 4 4 4 4
+5 5 5 5 5
+===========================
+tekan 1 untuk kembali ke menu awal
+tekan 2 untuk berhenti 
+tekan :
+
+#textcase 2
+======Formasi Deretan Angka======
+Masukkan Angka :5
+1. Formasi A
+2. Formasi B
+3. Keluar
+Silahkan memilih formasi :2
+Formasi B
+    1
+   2 2
+  3 3 3
+ 4 4 4 4
+5 5 5 5 5
+ 4 4 4 4
+  3 3 3
+   2 2
+    1
+===========================
+tekan 1 untuk kembali ke menu awal
+tekan 2 untuk berhenti 
+tekan :
+
+#text case 3
+tekan 1 untuk kembali ke menu awal
+tekan 2 untuk berhenti 
+tekan :1
+======Formasi Deretan Angka======
+Masukkan Angka :
+1. Formasi A
+2. Formasi B
+3. Keluar
+Silahkan memilih formasi :
+
+#text case 4
+tekan 1 untuk kembali ke menu awal
+tekan 2 untuk berhenti 
+tekan :2
+Terima kasih sudah menggunakan program ini
+
+#text case 5
+======Formasi Deretan Angka======
+Masukkan Angka :
+1. Formasi A
+2. Formasi B
+Silahkan memilih formasi :3
+Maaf formasi tidak tersedia untuk saat ini
+'''
+
+
+#input
+'''angka formasi'''
+#proses
+'''mimilih formasi'''
+#output
+'''menampilkan formasi'''
+
+def formasi_A (n):
+    for i in range (n,0,-1):
+        space = n - i
+        for j in range (space):
+            print (" ",end="")
+        for j in range (1,i+1):
+            print (i,end=" ")
+        print ()
+    for i in range (2,n+1):
+        space = n - i
+        for j in range (space):
+            print (" ",end="")
+        for j in range (1,i+1):
+            print (i,end=" ")
+        print ()
+
+def formasi_B (n):
+    for i in range (1,n+1):
+        space = n - i
+        for j in range (space):
+            print (" ",end="")
+        for j in range (1,i+1):
+            print (i,end=" ")
+        print ()
+    for i in range (n-1,0,-1):
+        space = n - i
+        for j in range (space):
+            print (" ",end="")
+        for j in range (1,i+1):
+            print (i,end=" ")
+        print ()
+
+f = 1
+while f == 1:
+    print ("="*8,"Formasi Deretan Angka","="*8)
+    n = int(input("Masukkan Angka :"))
+    print ("1. Formasi A")
+    print ("2. Formasi B")
+    pilih_formasi = int(input("Pilih formasi :"))
+    if pilih_formasi == 1:
+        print ("Formasi A")
+        formasi_A (n)
+        print ("="*16)
+        print ("Tekan 1 untuk kembali ke menu awal")
+        print ("Tekan 2 untuk berhenti")
+        tekan = int(input("Tekan :"))
+        if tekan == 2 :
+            print ("Terima kasih sudah menggunakan program ini")
+            f = 2
+    elif pilih_formasi == 2:
+        print ("Formasi B")
+        formasi_B (n)
+        print ("="*16)
+        print ("Tekan 1 untuk kembali ke menu awal")
+        print ("Tekan 2 untuk berhenti")
+        tekan = int(input("Tekan :"))
+        if tekan == 2 :
+            print ("Terima kasih sudah menggunakan program ini")
+            f = 2
+    else : 
+        print ("Maad Formasi tidak tersedia untuk saat ini")
+        print ("Silahkan pilih yang sudah disediakan")
