@@ -1,0 +1,21 @@
+'''
+soal : buatlah fungsi program yang dapat membantu untuk 
+menghilangkan spasi yang berlebihan pada sebuah kalimat
+
+input 
+kalimat yang spasinya tidak benar atau spasinya berlebihan
+
+proses 
+fungsi spasi yang akan membenarkan sebuah kalimat yang spasinya tidak benar
+
+output
+kalimat yang spasinya sudah benar
+'''
+def spasi_kata (text1):
+    text2 = text1.strip()
+    text3 = text2.split(" ")
+    text4 = " ".join([i for i in text3 if i.isalpha()])
+    print (text4)
+
+kalimat = str(input("Masukkan kalimat : "))
+spasi_kata (kalimat)
