@@ -1,0 +1,64 @@
+'''
+soal :
+giorno giovanna punya banyak barang antik dirumahnya yang ingin dijual karena itu kamu disuruh membuat program
+daftar barang jojo yang akan dijual. program kamu harus bisa menambahkan barang ke dalam daftar harga barang dan juga bisa 
+menampilkan daftar barang yang akan dijual, mencari nama barang yg akan dibeli
+
+input :
+barang antik dijual / dibeli, harga barang
+proses :
+membuat program yang bisa menambahkan barang ke dalam daftar harga barang, juga bisa 
+menampilkan daftar barang yang akan dijual, dan mencari nama barang yg akan dibeli
+output :
+1. Menambahkan barang yang akan dijual
+2. menampilkan daftar barang yang dijual
+3. mencari barang yang ingin dibeli
+'''
+
+handle = open("Desktop\\daftar barang antik.txt", "w+")
+handle.write("====== Barang Antik JOJO ====== \nNama barang \t Harga(Rp) \n")
+handle.close()
+
+x = 0
+while x == 0:
+    print ("="*15, "Menu Program JOJO", "="*15)
+    print ("1. Tambahkan barang antik")
+    print ("2. Tampilkan daftar barang antik")
+    print ("3. Cari barang antik")
+    print ("4. Keluar")
+    menu = int(input("Masukkan pilihan Anda :"))
+    if menu == 1:
+        print ("="*4, "Tambah barang", "="*4)
+        jml_barang = int(input("Berapa barang yang ingin ditambahkan :"))
+        handle = open("Desktop\\daftar barang antik.txt", "a+")
+        for i in range (1,jml_barang+1):
+            nama = str(input("Nama barang :"))
+            harga = str(input("Harga barang"))
+            handle.write("%s \t \t %s \n"%(nama,harga))
+        handle.close()
+        print ("Barang berhasil ditambahkan")
+    elif menu == 2:
+        handle = open("Desktop\\daftar barang antik.txt", "r")
+        print(handle.read())
+        handle.close()
+    elif menu == 3:
+        barang = input("Barang yang dicari :")
+        handle = open("Desktop\\daftar barang antik.txt", "r")
+        ada = 0
+        for line in handle:
+            if barang in line:
+                print ("Barang tersedia")
+                print ("Nama barang \t Harga(Rp)")
+                print (line)
+                ada = 1
+        handle.close()
+        if ada != 1:
+            print ("="*15)
+            print ("Barang tidak tersedia")
+            print ("="*15)
+    elif menu == 4:
+        print ("Berhasil logout")
+        x =2
+    else :
+        print ("Menu tidak tersedia")
+
