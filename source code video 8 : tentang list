@@ -1,0 +1,54 @@
+'''
+Soal :
+JoJo ingin mengatur penyimpananya supaya tidak rumit, kamu harus bantu JoJo dengan cara program kamu harus bisa : 
+1. menambahkan barang ke dalam seimpanan 
+2. Menampilkan barang yang sudah disimpan JoJo
+3. Mengambil barang dari penyimpanan dan brang di penyimpananya juga ikut hilang
+
+input: 
+Barang
+proses + output:
+membuat program yang dapat:
+1. menambahkan barang ke dalam seimpanan 
+2. Menampilkan barang yang sudah disimpan JoJo
+3. Mengambil barang dari penyimpanan dan brang di penyimpananya juga ikut hilang
+'''
+simpanan = []
+x = 0
+while x == 0:
+    print("="*10,"Selamat datang di penyimpanan JoJo","="*4)
+    print ("1. Simpan Barang")
+    print ("2. Lihat Barang")
+    print ("3. Ambil Barang")
+    print ("4. Keluar")
+    pilih = int(input("Masukkan pilihan Anda :"))
+    if pilih == 1:
+        print ("="*4,"SImpan Barang","="*4)
+        barang = input("Masukkan nama barang :")
+        barang.capitalize()
+        jml_barang = int(input("Berapa jumlah barang yang ingin disimpan :"))
+        for i in range (1,jml_barang+1):
+            simpanan.append(barang.capitalize())
+        print ("Berhasil menyimpan barang")
+    elif pilih == 2:
+        print ("="*4,"Lihat penyimpanan","="*4)
+        jenis = []
+        for i in simpanan:
+            if i not in jenis:
+                jenis.append(i)
+        for i in range (0,len(jenis)):
+            print(jenis[i],"\t \t",simpanan.count(jenis[i]),"biji")
+    elif pilih == 3:
+        print ("="*4,"Ambil barang", "="*4)
+        ambil = input("Barang yang akan diambil :")
+        ambil.capitalize()
+        jml_ambil = int(input("jumlah yang ingin diambil :"))
+        for i in range (1,jml_ambil+1):
+            simpanan.remove(ambil.capitalize())
+        print ("Barang berhasil dikeluarkan")
+    elif pilih == 4:
+        print("Berhasil keluar")
+        x = 1
+    else :
+        print ("Menu tidak tersedia")
+        print ("SILAHKAN BACA ULANG MENU NYA BAIK BAIK")
