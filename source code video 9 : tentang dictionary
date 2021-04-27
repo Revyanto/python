@@ -1,0 +1,59 @@
+'''
+JOJO kesulitan berkomunikasi dengan orang orang di sekitarnya karena mereka tidak mengerti maksud dari perkataan JOJO karena itu
+JOJO berencana untuk membuat kamus dengan bahasanya sendiri agar orang orang bisa mempelajari bahasanya sehingga dia tidak kesulitan lagi
+ketika berkomunikasi bantulah jojo dengan membuat program yang dapat:
+1. menambah kata kedalam kamus
+2. mencari kata
+3. meenghapus kata
+4. Tampilkan kata yang tersedia
+
+input :
+kata terjemahan
+
+proses + output:
+1. tambah kata
+2. cari kata
+3. hapus kata
+4. Tampilkan kata yang tersedia
+'''
+kamus = dict()
+p = 0
+while p == 0:
+    print ("="*8,"Kamus JOJO","="*8)
+    print ("1. Tambahkan kata")
+    print ("2. Cari kata")
+    print ("3. Hapus kata")
+    print ("4. Kata yang tersedia")
+    print ("5. Keluar")
+    pilih = int(input("Masukkan pilihan anda :"))
+    if pilih == 1:
+        print("Tambah kata")
+        kata = str(input("Masukkan kata :"))
+        terjemahan = str(input("Masukkan terjemahan kata :"))
+        kamus[kata.capitalize()] = terjemahan.capitalize()
+        print ("Kata berhasil ditambahkan \n")
+    elif pilih == 2:
+        print ("Cari kata")
+        cari = str(input("Kata yang dicari :"))
+        if cari.capitalize() in kamus:
+            print ("Artinya :",kamus[cari.capitalize()])
+            print()
+        else:
+            print("Kata tidak ditemukan \n")
+    elif pilih == 3:
+        print ("HAPUS KATA")
+        hapus = str(input("Masukkan kata yang akan dihapus :"))
+        if hapus.capitalize() in kamus:
+            kamus.pop(hapus.capitalize())
+            print ("Kata berhasil dihapus \n")
+        else :
+            print ("Kata tidak ditemukan \n")
+    elif pilih == 4:
+        print ("KATA YANG TERSEDIA")
+        print (kamus)
+        print ()
+    elif pilih == 5:
+        print("Berhasil keluar")
+        p = 1
+    else:
+        print ("Menu tidak tersedia")
