@@ -1,0 +1,54 @@
+'''
+pada suatu hari ezreal berkeliling dunia runaterra demi mencari orangtuanya yang sudah lama menghilang
+tanpa kabar. satu satunya petunjuk yang dimiliki ezreal adalah mencari benda benda peninggalan yang di tinggalkan 
+dan disebarkan di berbagai tempat di runaterra. Ezreal telah emnemukan beberapa petunjuk lalu Kamu sebagai teman baik ezreal 
+akan membantunya mengatur penyimpanan petunjuk petunjuk yang ditemukan ezreal
+
+input:
+benda benda yang ditemukan ezreal
+
+proses+output:
+membuat programpenyimpanan untuk ezreal
+'''
+collection = tuple()
+l = 0
+while l == 0:
+    print("="*8,"Selamat datang tuan Ezreal","="*8)
+    print("Pilih salah satu menu dibawah ini :")
+    print("1. Tambahkan petunjuk baru")
+    print ("2. Tampilkan Petunjuk yang tersimpan")
+    print ("3. Cari petunjuk")
+    print ("4. Log out")
+    menu = int(input(">> "))
+    if menu ==1:
+        print ("="*4,"Simpan petunjuk","="*4)
+        bag = list(collection)
+        petunjuk = input("Masukkan petunjuk baru :")
+        if petunjuk.capitalize() in collection:
+            print ("Petunjuk sudah ada")
+            print ("-"*15,"\n")
+        else:
+            bag.append(petunjuk.capitalize())
+            collection = tuple(bag)
+            print ("Petunjuk berhasil diupdate")
+            print ("-"*15,"\n")
+    elif menu == 2:
+        print ("="*4,"Petunjuk saat ini","="*4)
+        for i in collection:
+            print (i)
+        print ("-"*15,"\n")
+    elif menu == 3:
+        print ("="*4,"Cari Petunjuk","="*4)
+        cari = input("Petunjuk yang dicari :")
+        if cari.capitalize() in collection:
+            print ("ada")
+            print ("-"*15,"\n")
+        else:
+            print("Tidak ada petunjuk")
+            print ("-"*15,"\n")
+    elif menu == 4:
+        print("berhasil log out")
+        print ("-"*15)
+        l = 2
+    else:
+        print("Menu belum tersedia")
