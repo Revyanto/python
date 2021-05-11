@@ -1,0 +1,81 @@
+'''
+Role Guide
+ADC = "Ashe, Corki, Draven, Ezreal, Jin, Jinx, Kai'sa, Teemo, Tristana, Varus, Vayne, Xayah"
+Support = "Braum, Blizztcrank, Pantheon, Seraphine, Rakan, Alistar, Lux, Nami, Galio, Orianna, Lulu, Leona, Malphite"
+Jungler = "Rammus, Lee sin, Evelyn, Rengar, Kha'zix, Amumu, Mundo, Xin Zhao, Olaf, Tryndamere, Vayne, Camille, Yasuo, Pantheon, Gragas, Jax, Yi. Graves, Vi"
+Mid = "Akali, Katarina, Fizz, Ahri, Orianna, Lux, Seraphine, Pantheon, Zed, Galio, Ziggs, Ezreal, Corki, Yasuo, Diana, Gragas, Twisted Fate"
+Baron = "Gragas, Garen, Darius, Pantheon, Galio, Olaf, Tryndamere, Akali, Yasuo, Diana, Jax, Vayne, Teemo, Mundo, Malphite, Singed"
+
+cobalah untuk membuat role guide diatas menjadi set dan operasikan rolenya:
+a. carilah banyak champion dari semua role
+b. champion yang hanya bisa main di satu role
+c. champion yang bisa main di tiga role
+
+input :
+ADC = "Ashe, Corki, Draven, Ezreal, Jin, Jinx, Kai'sa, Teemo, Tristana, Varus, Vayne, Xayah"
+Support = "Braum, Blizztcrank, Pantheon, Seraphine, Rakan, Alistar, Lux, Nami, Galio, Orianna, Lulu, Leona, Malphite"
+Jungler = "Rammus, Lee sin, Evelyn, Rengar, Kha'zix, Amumu, Mundo, Xin Zhao, Olaf, Tryndamere, Vayne, Camille, Yasuo, Pantheon, Gragas, Jax, Yi. Graves, Vi"
+Mid = "Akali, Katarina, Fizz, Ahri, Orianna, Lux, Seraphine, Pantheon, Zed, Galio, Ziggs, Ezreal, Corki, Yasuo, Diana, Gragas, Twisted Fate"
+Baron = "Gragas, Garen, Darius, Pantheon, Galio, Olaf, Tryndamere, Akali, Yasuo, Diana, Jax, Vayne, Teemo, Mundo, Malphite, Singed"
+
+proses + output :
+buat role guide diatas menjadi set
+a. carilah banyak champion dari semua role
+b. champion yang hanya bisa main di satu role
+c. champion yang bisa main di tiga role
+'''
+def set_maker(s):
+    se = s.split(",")
+    s2 = set()
+    for i in se:
+        s2.add(i.strip())
+    return s2
+
+ADC = "Ashe, Corki, Draven, Ezreal, Jin, Jinx, Kai'sa, Teemo, Tristana, Varus, Vayne, Xayah"
+Support = "Braum, Blizztcrank, Pantheon, Seraphine, Rakan, Alistar, Lux, Nami, Galio, Orianna, Lulu, Leona, Malphite"
+Jungler = "Rammus, Lee sin, Evelyn, Rengar, Kha'zix, Amumu, Mundo, Xin Zhao, Olaf, Tryndamere, Vayne, Camille, Yasuo, Pantheon, Gragas, Jax, Yi, Graves, Vi"
+Mid = "Akali, Katarina, Fizz, Ahri, Orianna, Lux, Seraphine, Pantheon, Zed, Galio, Ziggs, Ezreal, Corki, Yasuo, Diana, Gragas, Twisted Fate"
+Baron = "Gragas, Garen, Darius, Pantheon, Galio, Olaf, Tryndamere, Akali, Yasuo, Diana, Jax, Vayne, Teemo, Mundo, Malphite, Singed"
+
+#versi set
+adc = set_maker(ADC)
+sp = set_maker(Support)
+jg =set_maker(Jungler)
+mid = set_maker(Mid)
+baron = set_maker(Baron)
+
+role = [adc,sp,jg,mid,baron]
+#bagian A
+all_champion = adc | sp | jg | mid |baron
+print ("banyak champion dari semua role",len(all_champion))
+print("-"*40,"\n")
+
+#bagian B
+only_one = set()
+for i in role:
+    role = [adc,sp,jg,mid,baron]
+    role.remove(i)
+    for j in role:
+        only = i - j
+    only_one = only_one | only
+
+print ("champion yang hanya bisa main di satu role")
+for i in only_one:
+    print(i,end=" ")
+print()
+print("-"*40,"\n")
+
+#bagian C
+tiga = set()
+for i in role:
+    role = [adc,sp,jg,mid,baron]
+    role.remove(i)
+    for j in role:
+        role.remove(j)
+        for k in role:
+            role3= i & j & k
+    tiga = tiga | role3
+print("champion yang bisa main di tiga role")
+for i in tiga:
+    print(i,end="|")
+    print ()
