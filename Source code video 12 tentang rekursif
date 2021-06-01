@@ -1,0 +1,51 @@
+'''
+BUATLAH SEBUAH PROGRAM REKURSIF UNTUK KALKULATOR MATEMATIKA YANG DAPAT MELAKUKAN PERKALIAN 2 BILANGAN DAN PEMANGKATAN BILANGAN TANPA OPERATOR!!!
+
+INPUT:
+bilangan yang akan di kalikan
+bilangan yang akan di[angkatkan
+
+PROSES+OUTPUT:
+membuat program perkalian rekursif
+membuat program pemangkatan rekursif
+membuat kalkulator
+'''
+def perkalian (a,b):
+    if b == 1:
+        return a
+    else:
+        return a + perkalian (a,b-1)
+
+def pemangkatan (a,b):
+    if b == 1:
+        return a
+    else:
+        return a * pemangkatan(a,b-1)
+
+p= 1
+while p ==1:
+    print ("-"*8,"Kalkulator sederhana","-"*8)
+    print ("1. Perkalian")
+    print ("2. Pemangkatan")
+    print ("3. Exit")
+    menu = int(input("Masukkan pilihan anda: "))
+    if menu == 1:
+        print ("="*4,"Perkalian (AxB)","="*4)
+        a = int(input("A = (Masukkan bilangan yang akan dikali)..."))
+        b = int(input("B = (Masukkan bilangan pengali)..."))
+        print (a,"x",b,"=",perkalian(a,b))
+        print ("="*20)
+        print()
+    elif menu == 2:
+        print ("="*4,"Pemangkatan (A^B)","="*4)
+        a = int(input("A = (Masukkan bilangan yang akan dipangkatkan)..."))
+        b = int(input("B = (Masukkan bilangan pemangkat)..."))
+        print (a,"^",b,"=",pemangkatan(a,b))
+        print("="*20)
+        print()
+    elif menu == 3:
+        print("....Anda berhasil keluar....")
+        print ("Terima kasih sudah menggunakan kalkulator kami")
+        p= 0
+    else :
+        print ("Menu tidak tersedia")
