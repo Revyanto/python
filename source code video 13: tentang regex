@@ -1,0 +1,29 @@
+import re
+'''
+ben ingin membuat sebuah akun tapi dia gaptek, karena itu kamu harus membantunya membuat akun dengan syarat email harus memakai (@), diawali 
+dengan kata (ben), memakai angka 0-9 sebanyak 2 sampai 4 digit. untuk passwordnya harus minimal 8 karakter, mengguanakan huruf besar dan 
+huruf kecil, memakai angka 0-9 kecuali 4. boleh menggunakan simbol apapun kecuali tanda titik dan koma. 
+
+input:
+email dan password
+
+proses + output:
+email harus memakai (@), diawali dengan kata (ben), memakai angka 0-9 sebanyak 2 sampai 4 digit. untuk passwordnya harus minimal 8 karakter, 
+mengguanakan huruf besar dan  huruf kecil, memakai angka 0-9 kecuali 4. boleh menggunakan simbol apapun kecuali tanda titik dan koma. 
+
+'''
+
+p = 1
+while p == 1:
+    email = input("Masukkan email :")
+    if re.search("^(ben)[0-9]{2,4}[@].+",email):
+        p = 2
+        while p == 2:
+            password = input("Masukkan password :")
+            if re.search("[A-Za-z0-35-9]{8}.*[^.,]",password):
+                print ("Berhasil membuat akun")
+                p = 3
+            else :
+                print ("password tidak memenuhi syarat")
+    else:
+        print ("email tidak memenuhi syarat")
